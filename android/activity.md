@@ -17,4 +17,14 @@ To declare an activity, you should just add **<activity>** as a child of **<appl
 </application>
 ```
 
-**Intent filters**: In this stage, 
+**Intent filters**: In this stage, we use a **intent filter** to show who have the permission to enter this activity.  
+
+### The Activity lifecycle
+
+The lifecycle of an activity: **onCreate, onStart, onResume, onPause, onStop, onDestroy**.  
+
+- onCreate: Must be implemented. Most time it should load saved instanced state and set the content view. 
+- onStart: It is when the app is coming into the interactive mode.  
+- onResume: When the user is back to the application
+- onPause: Means the app is not run on the foreground.
+- onStop: When the app is not run 
