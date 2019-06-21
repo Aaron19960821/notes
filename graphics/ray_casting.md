@@ -35,7 +35,7 @@ A **ray** have the following properties:
 See the following picture, we focus on the following things of a camera when
 we do ray-casting algorithms.  
 
-![Camera][./pic/ray_casting/ray_casting_camera.png]
+![Camera](./pic/ray_casting/ray_casting_camera.png)
 
 - The point of Camera **e**
 - The Orthobasis **u, v, w**(horizontal, up, direction)
@@ -51,7 +51,7 @@ Practice: Compute the ray from a camera to an image-plane.
 - Ray definition $P(t) = R_0 + t * R_d$
 - Plane definition: A plane can be refined by a point and a normal vector
 
-![Plane][./pic/ray_casting/ray_casting_plane.png]
+![Plane](./pic/ray_casting/ray_casting_plane.png)
 
 Let's have the following definitions:
 $$P_0 = (x_0, y_0, z_0)$$

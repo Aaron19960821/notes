@@ -67,6 +67,3 @@ $$
   - For 2D, we use 3-vectors and 3*3 matrices...
 
 - The extra coordinate is now an arbitrary value, w.
-
-
-
