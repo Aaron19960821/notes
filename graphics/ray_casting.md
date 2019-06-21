@@ -35,7 +35,7 @@ A **ray** have the following properties:
 See the following picture, we focus on the following things of a camera when
 we do ray-casting algorithms.  
 
-![Camera][./pic/ray_casting/ray_casting_camera.png]
+![Camera](./pic/ray_casting/ray_casting_camera.png)
 
 - The point of Camera **e**
 - The Orthobasis **u, v, w**(horizontal, up, direction)
@@ -51,7 +51,7 @@ Practice: Compute the ray from a camera to an image-plane.
 - Ray definition $P(t) = R_0 + t * R_d$
 - Plane definition: A plane can be refined by a point and a normal vector
 
-![Plane][./pic/ray_casting/ray_casting_plane.png]
+![Plane](./pic/ray_casting/ray_casting_plane.png)
 
 Let's have the following definitions:
 $$P_0 = (x_0, y_0, z_0)$$
@@ -90,6 +90,15 @@ And then, we have the following equation:
 
 $$P(\beta, \gamma) = a + \beta(b-a) + \gamma(c-a)$$
 It is called the **Barycentric definition of a plane**
+
+To compute the value of $\alpha, \beta, \gamma$, we just need a simple trick in linear algebra.  
+$$P - a - \alpha e_1 - \beta e_2 = 0$$
+$$<e_1, P - a - \alpha e_1 - \beta e_2> = 0$$
+$$<e_2, P - a - \alpha e_1 - \beta e_2> = 0$$
+$$e_1 = (b-a), e_2 = (c-a)$$
+
+Then compute **t**, we just solve the following linear system:  
+$$R_0 + t*R_d = a + \alpha (b-a) + \beta(c - a)$$
 
 ## Constructive Solid Geometry
 
