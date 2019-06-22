@@ -59,6 +59,35 @@ $$
 ## Notation properties
 
 - If the fourth coordinate is zero, we get a vector.
+
+- A **frame** is an origin o plus a basis b.
+- Any point in the space can be described as following:  
+
+$$p = o + \sum_i{c_i b_i}$$
+
+We like to have this representation in matrix form:  
+
+$$
+p = 
+\begin{bmatrix}
+b_1 & b_2 & b_3 & o
+\end{bmatrix}
+\begin{bmatrix}
+c_1 \\ 
+c_2 \\ 
+c_3 \\
+1
+\end{bmatrix}
+= f^tc
+$$
+
+## Afine transformations
+- Include all linear transformation
+- Translation
+
+## Notation properties
+
+- If the fourth coordinate is zero, we get a vector.
 - If the fourth coordinate is 1, then we get a point.(A point plus a vector).
 
 ## Homogeneous Coordinates
