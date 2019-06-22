@@ -29,5 +29,35 @@ $$L(v) = L(\sum_i{c_ib_i}) = \sum_i{c_iL(b_i)}$$
 
 So we know for any vector in a linear space, we can calculate any transformations on them based on the transformation on the basis.
 
+## Frames
+
+- A **frame** is an origin o plus a basis b.
+- Any point in the space can be described as following:  
+
+$$p = o + \sum_i{c_i b_i}$$
+
+We like to have this representation in matrix form:  
+
+$$
+p = 
+\begin{bmatrix}
+b_1 & b_2 & b_3 & o
+\end{bmatrix}
+\begin{bmatrix}
+c_1 \\ 
+c_2 \\ 
+c_3 \\
+1
+\end{bmatrix}
+= f^tc
+$$
+
+## Afine transformations
+- Include all linear transformation
+- Translation
+
+## Notation properties
+
+- If the fourth coordinate is zero, we get a vector.
 
 
