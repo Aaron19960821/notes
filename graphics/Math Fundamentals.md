@@ -59,6 +59,15 @@ $$
 ## Notation properties
 
 - If the fourth coordinate is zero, we get a vector.
+- If the fourth coordinate is 1, then we get a point.(A point plus a vector).
+
+## Homogeneous Coordinates
+
+- Add an extra dimension
+  - For 2D, we use 3-vectors and 3*3 matrices...
+
+- The extra coordinate is now an arbitrary value, w.
+
 
 - A **frame** is an origin o plus a basis b.
 - Any point in the space can be described as following:  
