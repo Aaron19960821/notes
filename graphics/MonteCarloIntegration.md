@@ -37,3 +37,22 @@ $$V[F_N] = V[\frac{1}{N}\sum_{i=1}^Ny_i]  = \frac{1}{N^2}V[\sum_{i=1}^Ny_i] = \f
 
 We plug these stuff into **Chebyshev's inequality**, we can get that:  
 $$Pr\{|F_N - E[F_N]| \geq \frac{1}{\sqrt{N}}(\frac{V[Y]}{\sigma})^{\frac{1}{2}}\} \leq \sigma$$
+
+As we talked above, the main task for us to let $F_N$ converge is that we need to choose good samples.  
+
+## Methods to Choose Samples
+
+- Inversion Method
+-- Compute CDF $U = P(X)$
+-- Solve the inversion $X = P^{-1}(U)$
+
+- Rejection Method
+-- We have a known distribution $p(x)$ and a constant $c$ where $f(x) \leq cp(x)$
+-- Then if $\xi < \frac{f(X)}{cp(X)}$, return X, otherwise we continue our loop.  
+
+- Transformation Method
+-- Given source random variable $X$ with PDF $p_x(X)$ and a target PDF function $p_y(Y)$
+$$P_y(y(x)) = Pr\{Y \leq y(x)\} = Pr\{X \leq x\} = P_x(x)$$
+$$\frac{dP_y(y(x))}{dx} = \frac{dP_x(x)}{dx}$$
+$$\frac{dP_y(y(x))}{dy}\frac{dy}{dx} = \frac{dP_x(x)}{dx}$$
+$$p_y(y) = (\frac{dy}{dx})^{-1}p_x(x)$$
