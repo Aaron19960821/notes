@@ -56,3 +56,38 @@ $$P_y(y(x)) = Pr\{Y \leq y(x)\} = Pr\{X \leq x\} = P_x(x)$$
 $$\frac{dP_y(y(x))}{dx} = \frac{dP_x(x)}{dx}$$
 $$\frac{dP_y(y(x))}{dy}\frac{dy}{dx} = \frac{dP_x(x)}{dx}$$
 $$p_y(y) = (\frac{dy}{dx})^{-1}p_x(x)$$
+
+## Some Practical Cases
+
+### Piecewise-Constant 2D Distributions
+
+Question Description: Given a 2D function $f(u, v)$ defined by a set of $n_u * n_v$ values $f[u_i, v_j]$.
+Firstly we integrate $f$ over the domain, then we will get:  
+
+$$I_f = \int\int f(u, v)dudv = \frac{1}{n_un_v}{\sum_{i=0}^{n_u-1}\sum_{j=0}^{n_v-1}f[u_i, v_j]}$$
+
+Thus $f$'s PDF is that:  
+
+$$p(u,v) = \frac{f(u,v)}{I_f}$$
+
+Then the marginal density $p(v)$ is that:  
+
+$$p(v) = \int{p(u,v)du} = \frac{(1/n_u)\sum_i{f[u_i, v]}}{I_f}$$
+
+Then given a $v$ sample, the conditional density $p(u|v)$ is then:  
+
+$$p(u|v) = \frac{p(u, v)}{p(v)} = \frac{f(u, v)}{I_fp(v)}$$
+
+## How to make Monte Carlo sampling  better
+
+The efficiency of an estimator:  
+
+$$\epsilon[F] = \frac{1}{V[F]T[F]}$$
+
+Where $V[F]$ is variance and $T[F]$ is the time they use.  
+
+### Russian Roulette
+
+
+Main idea: Make recursive in Path Tracing terminate when the contribution is small enough.
+Standard Method: Choose a probability $q$ and make tracing end by q.
