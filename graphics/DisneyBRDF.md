@@ -31,3 +31,11 @@ Disney Principled BRDF uses the Schlick Fresnel approximation with some modifica
 
 $$f_d = \frac{baseColor}{\pi}\left(1 + (F_{D90}-1)(1-cos \theta_l)^5\right) \left(1+(F_{D90}-1)(1-cos \theta_v)^5\right)$$
 $$F_{D90} = 0.5 + 2*cos \theta_d^2 \text{ roughness}$$
+
+And we also have subsurface BRDF based on the ideas from **Hanrahan-Krueger subsurface BRDF**. And the function is:
+$$f_{subsurface} = \frac{1.25}{\pi}(F_{ss}*(\frac{1.0}{cos\theta_i + cos\theta_o}-0.5)+0.5)$$
+$$F_{ss} = (1 + (F_{ss90}-1)(1-cos\theta_i)^5)(1+(F_{ss90}-1)(1-cos\theta_o)^5)$$
+$$F_{ss90} = cos\theta_d^2 * roughness$$
+
+In Disney Principled BRDF, we use **subSurface** to put everything together, that is:  
+$$f = (1.0-subsurface)*f_d + subsurface*f_{subsurface}$$
