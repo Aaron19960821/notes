@@ -17,9 +17,15 @@ Disney Pricipled BRDF is a BRDF model based on microfacet theory. It is proposed
 The effect of each parameter is here below:  
 [](./pic/disney_brdf)
 
-## BRDF Models
+## Microfacet Models
 
-According to **Bruce Walter**'s work on ESR2007, the Microfacet model BRDFs mainly have the following parts:  
+The Microfacet theory thought that if a surface reflection is between a given light vector **l** and view vector **v**, then there should be some portion of surface, or microfacet, with a normal aligned halfway between the **l** and **v** vectors. The half vector is defined as $h = normalize(l+v)$.
+
+Then a general form of microfacet BRDFs is like below:  
+
+$$f(l, v) = diffuse + \frac{D(\theta_h)F(\theta_d)G(\theta_l, \theta_v)}{4cos\theta_lcos\theta_v}$$
+
+According to **Bruce Walter**'s work on ESR2007, the specular term contains the following things:
 
 - **D**: Microfacet distribution function, the statistical distribution of surface normals over the microsurface.
 - **G**: Bidirectional shadowing-masking function, means that visible fraction of microsurface with normal **m** in both directions **i** and **o**.
