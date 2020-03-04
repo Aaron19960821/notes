@@ -1,5 +1,7 @@
 % !TEX program = xelatex
 
+\usepackage{hyperref}
+
 \documentclass{resume}
 %\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
 %\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
@@ -11,17 +13,35 @@
 
 \basicInfo{
   \email{wyc8094@gmail.com} \textperiodcentered\ 
-	\phone{(+86) 18028804442} \textperiodcentered\ 
+	\phone{(+886) 0937069018} \textperiodcentered\ 
 	}
 
-\section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Jinan University}, Guangzhou, China}{2014 -- 2018}
+\datedsubsection{\textbf{Jinan University}, Guangzhou, China}{September 2014 -- June 2018}
 \textit{B.S.} in Computer Science, GPA: 3.68
 
 \section{\faUsers\ Projects}
 
+\datedsubsection{\textbf{BubbleScript}}{November - December 2019}
+\role{Javascript}{Individual Project}
+Brief introduction: Real-time bubble simulation based on WebGL and WebVR.
+\begin{itemize}
+    \item Investigate fluid simulation algorithms on Siggraph 2007 course notes.
+    \item Implement shallow water simulation and bubble simulation from paper on SCA 2007.
+    \item Adopt whole experience into WebVR.
+    \item Demo is at \url{https://aaron19960821.github.io/BubbleScript/}
+\end{itemize}
+
+\datedsubsection{\textbf{NoriPlus}}{September 2019 - now}
+\role{C++}{Individual Project}
+Brief introduction: A simple C++ renderer based on \textbf{Nori}.
+\begin{itemize}
+    \item Understanding and implement different algorithms in Ray tracing.
+    \item Investigate different BRDF models in computer graphics.
+    \item Investigate different light transportation methods in computer graphics.
+\end{itemize}
+
 \datedsubsection{\textbf{ButterflyDetection}}{March - May 2018}
-\role{C++, C}{Individual Projects}
+\role{C++, C}{Individual Project}
 Brief introduction: A butterfly detection and classify model based on YOLO and R-CNN.
 \begin{itemize}
 	\item Investigate the usage of some basic layers(Convolution layer, Max-Pooling layer) in Darknet and change them for proper use.
@@ -49,11 +69,11 @@ Brief introduction: A tiny, fast painter in windows implemented by .NET framewor
 
 \section{\faUsers\ Experience}
 
-\datedsubsection{\textbf{Microsoft}}{July - now 2018}
+\datedsubsection{\textbf{Microsoft}}{July 2018 - September 2019}
 \role{Software Engineer}{Manager: Yet Huynh}
 Work as a software engineer in Microsoft Edge Team.
 \begin{itemize}
-    \item Responsible for Extension framework on Edge Android, make Microsoft Edge one of 3 browsers in the world that supports chromium extension.
+    \item Responsible for Extension framework on Edge Android, make Microsoft Edge one of 3 browsers in the world that supports chromium extension on Android.
     \item Work on file downloading for managed account for enterprise feature.
     \item Invesigate and fix Edge Accessibility Feature on Edge Android.
     \item Optimize the reading list feature on Edge Android.
