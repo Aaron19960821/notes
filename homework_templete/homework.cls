@@ -3,7 +3,7 @@
 % Author: Artem Mavrin, TwoCookingMice
 %
 % The most recent version can be found here:
-% https://github.com/artemmavrin/latex-homework/blob/master/homework.cls
+% https://github.com/Aaron19960821/notes/tree/master/homework_templete
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{homework}[2020/09/13 LaTeX class for typesetting homework]
 
@@ -76,6 +76,7 @@
 % have to be specified manually.
 \def\@hwname{Homework}
 \def\@problemname{Problem}
+\def\@partsname{Part}
 \def\@solutionname{Solution}
 % The homework title is determined by the course name, homework name, and
 % homework number, and cannot be changed by the user (without redefining
@@ -199,51 +200,40 @@
 \def\problemnumber#1{\setcounter{@problem}{#1}\addtocounter{@problem}{-1}}
 
 % Parts environment
-% By default, parts are labeled by lowercase letters.
-% The parts environment provides options for other labels:
-% `a' (default) lowercase letters
-% `A' uppercase letters
-% `r' lowercase Roman numerals
-% `R' uppercase Roman numerals
-% `n' numbers
-\RequirePackage{enumitem}
+\ifHW@boxes
+  \RequirePackage{framed}
+\fi
+\theoremstyle{definition}
+\newtheorem{@parts}{\Large\sffamily\@partsname}
+\numberwithin{@problem}{@parts}
+\newenvironment{parts}[1][]
+{
+  \ifHW@boxes
+    \framed
+    \vspace{-1.5ex}
+  \fi
+  \def\@arg{#1}
+  \ifx\@arg\empty
+    \@parts
+  \else
+    \@parts[\Largefont\@arg\sffamily]
+  \fi
+  \pdfbookmark{\@partsname\ \arabic{@parts}}{\arabic{@parts}}
+}
+{
+  \end@parts
+  \ifHW@boxes
+    \vspace{-1.5ex}
+    \endframed
+  \fi
+}
+
+% Problems are numbered 1, 2, 3, ... by default
+% If a custom problem number is desired for a particular problem, use the
+% following macro before the problem.
+\def\partsnumber#1{\setcounter{@parts}{#1}\addtocounter{@parts}{-1}}
 
 % Define parts environment option actions
-\@namedef{partlabel@a}{\def\@partlabel{\textup{(\alph*)}}}
-\@namedef{partlabel@A}{\def\@partlabel{\textup{(\Alph*)}}}
-\@namedef{partlabel@r}{\def\@partlabel{\textup{(\roman*)}}}
-\@namedef{partlabel@R}{\def\@partlabel{\textup{(\Roman*)}}}
-\@namedef{partlabel@n}{\def\@partlabel{\textup{(\arabic*)}}}
-
-% Actual parts environment
-\newenvironment{parts}[1][a]
-{
-  % Process option (default is `a')
-  \@ifundefined{partlabel@#1}
-  {
-    \@latex@error{Invalid parts environment option: #1}\@ehc
-  }
-  {
-    \@nameuse{partlabel@#1}
-  }
-  \renewcommand\part\item
-  \ % Make the list always starts on a new line
-  \enumerate
-  [ label=\@partlabel,
-  , itemsep=1pt
-  , parsep=1pt
-  , topsep=0pt
-  , partopsep=100pt
-  , labelindent=0pt
-  , labelwidth=4.5em
-  , labelsep=0.5em
-  , resume
-  ]
-}
-{
-  \endenumerate
-}
-\def\unresume{\setcounter{enumi}{0}}
 
 % Solution environment
 \ifHW@hidesolutions
